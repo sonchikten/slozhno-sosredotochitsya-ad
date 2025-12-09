@@ -1,23 +1,27 @@
 .page {
+  background-attachment: fixed;
+  background-color: var(--bg-color);
+  background-image: var(--bg-image);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: var(--main-font, monospace);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 40px;
-  width: 100%;
-  min-width: 375px;
+  min-inline-size: 375px;
+  max-inline-size: 1440px;
+  margin: 0 auto;
   overflow-x: hidden;
-  font-family: var(--main-font, monospace);
-  background-color: var(--bg-color);
-  background-attachment: fixed;
 }
 
-.top-section {
+.header {
   position: relative;
   display: grid;
   grid-template-rows: 1fr min-content 1fr;
   align-items: center;
   gap: var(--gap_menu);
   height: 100vh;
+  min-height: 668px;
   padding: var(--decoration-gap) 0;
   background-image: var(--bg-image);
   background-repeat: no-repeat;
@@ -47,18 +51,18 @@
   inline-size: 25px;
 }
 
-.theme-switcher {
+.header__theme-menu {
   justify-self: end;
   margin: auto var(--decoration-gap);
 }
 
-.theme-switcher__list {
+.header__theme-menu-list {
   position: relative;
   display: grid;
   gap: 13px;
 }
 
-.theme-switcher__btn {
+.header__theme-menu-button {
   display: inline-block;
   width: 70px;
   height: 26px;
@@ -74,24 +78,24 @@
   cursor: pointer;
 }
 
-.theme-switcher__btn_active {
+.header__theme-menu-button_active {
   border: 1px solid var(--header-color);
   pointer-events: none;
 }
 
-.theme-switcher__btn:hover {
+.header__theme-menu-button:hover {
   border: 1px solid var(--accent-color-border);
 }
 
-.theme-switcher__btn:focus {
+.header__theme-menu-button:focus {
   outline: none;
 }
 
-.theme-switcher__btn:focus-visible {
+.header__theme-menu-button:focus-visible {
   border-bottom: 1px solid var(--header-color);
 }
 
-.rec-indicator {
+.header__hiddencorner {
   position: absolute;
   top: var(--decoration-gap);
   right: var(--decoration-gap);
@@ -102,7 +106,7 @@
   color: var(--accent-color);
 }
 
-.rec-indicator::after {
+.header__hiddencorner::after {
   content: "";
   display: inline-block;
   width: 9px;
@@ -113,7 +117,7 @@
   background-color: var(--accent-color);
 }
 
-.intro-text {
+.header__text {
   margin-right: 0 var(--decoration-gap);
   color: var(--header-text-color);
   font-weight: 700;
@@ -122,7 +126,7 @@
   background-color: var(--header-text-bg-color);
 }
 
-.main-title {
+.header__title {
   padding: var(--decoration-gap);
   color: var(--title-color);
   font-weight: 700;
@@ -131,48 +135,48 @@
   text-shadow: 4px 4px 0px var(--shadow-color);
 }
 
-.content {
+.main {
   display: flex;
   flex-direction: column;
   gap: 50px;
   padding: 0 var(--decoration-gap);
 }
 
-.focus-problem,
-.attention-enemies,
-.focus-solutions,
-.solutions-list {
+.hard_to_concentrate,
+.what_reduces_attention,
+.how_to_concentrate,
+.section__list {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.section-title {
+.section__header {
   color: var(--header-color);
   font-weight: 700;
   font-size: 18px;
   line-height: 23.4px;
 }
 
-.content-link {
+.section__link {
   text-decoration: none;
   text-shadow: 2px 1px 0 var(--accent-color);
   cursor: pointer;
 }
 
-.content-link:focus {
+.section__link:focus {
   outline: none;
 }
 
-.content-link:focus-visible {
+.section__link:focus-visible {
   outline: 1px solid currentColor;
 }
 
-.content-link:hover {
+.section__link:hover {
   border-bottom: 1px solid currentColor;
 }
 
-.accent-title {
+.title-decor {
   color: var(--header-text-color);
   font-weight: 700;
   font-size: 18px;
@@ -180,52 +184,53 @@
   background-color: var(--header-text-bg-color);
 }
 
-.content-card,
-.solutions-list__item {
+.card,
+.section__list-item {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.solutions-list__header {
+.section__list-header {
   font-weight: 400;
 }
 
-.card-text {
+.card__text {
   color: var(--card-text);
   font-weight: 400;
   font-size: 18px;
   line-height: 23.4px;
 }
 
-.image-gallery {
+.pictures {
   display: flex;
   flex-direction: column;
   gap: var(--decoration-gap);
 }
 
-.gallery-grid {
+.gallery {
   display: grid;
   grid-gap: var(--decoration-gap);
 }
 
-.gallery-grid__image {
+.gallery__image {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.bottom-section {
+.footer {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  min-height: 668px;
   padding: var(--decoration-gap);
 }
 
-.footer-title {
+.footer__text {
   color: var(--title-color);
   font-weight: 700;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
@@ -243,73 +248,72 @@
     gap: 60px;
   }
 
-  .content {
+  .main {
     gap: 80px;
   }
 
-  .top-section {
+  .header {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .theme-switcher {
+  .header__theme-menu {
     grid-column: 1/3;
     grid-row: 1;
   }
 
-  .main-title {
+  .header__title {
     left: -20px;
     grid-column: 1/3;
     grid-row: 2;
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
-  .intro-text {
+  .header__text {
     grid-column: 2;
     grid-row: 3;
   }
 
-  .focus-problem {
+  .hard_to_concentrate {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 20px;
   }
 
-  .focus-problem .section-title,
-  .attention-enemies .section-title,
-  .focus-solutions .section-title {
+  .hard_to_concentrate .section__header,
+  .what_reduces_attention .section__header,
+  .how_to_concentrate .section__header {
     grid-column: 1;
   }
 
-  .focus-solutions .section-title {
+  .how_to_concentrate .section__header {
     grid-row: 1/3;
   }
 
-  .focus-problem .content-card {
+  .hard_to_concentrate .card {
     grid-column: 2;
   }
 
-  .attention-enemies {
+  .what_reduces_attention {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
 
-  .attention-enemies .content-card {
+  .what_reduces_attention .card {
     grid-column: 1/-1;
   }
 
-  .focus-solutions {
+  .how_to_concentrate {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 20px;
   }
 
-  .solutions-title,
-  .solutions-list {
+  .rules, .section__list {
     grid-column: 2;
   }
 
-  .gallery-grid {
+  .gallery {
     grid-template-columns: repeat(3, minmax(196px, 1fr));
     grid-auto-flow: dense;
   }
@@ -329,13 +333,13 @@
     grid-row: span 2;
   }
 
-  .footer-title {
+  .footer__text {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 }
 
 @media (width >= 1024px) {
-  .theme-switcher {
+  .header__theme-menu {
     display: flex;
     flex-direction: column;
     justify-self: center;
@@ -343,41 +347,51 @@
     height: 100%;
   }
 
-  .theme-switcher__list {
+  .header__theme-menu-list {
     grid-auto-flow: column;
   }
 
-  .focus-problem {
+  .hard_to_concentrate {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .focus-problem .section-title {
+  .hard_to_concentrate .section__header {
     grid-row: span 2;
   }
 
-  .focus-problem .content-card {
+  .hard_to_concentrate .card {
     grid-column: span 2;
   }
 
-  .attention-enemies {
+  .what_reduces_attention {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .attention-enemies .content-card {
+  .what_reduces_attention .card {
     grid-column: span 1;
     grid-row: 2;
   }
 
-  .focus-solutions {
+  .how_to_concentrate {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .focus-solutions .solutions-title,
-  .focus-solutions .solutions-list {
+  .how_to_concentrate .rules,
+  .how_to_concentrate .section__list {
     grid-column: 2/4;
   }
 
-  .focus-solutions .section-title {
+  .how_to_concentrate .section__header {
     grid-row: span 2;
+  }
+  
+  .header, .footer {
+    min-height: 768px;
+  }
+}
+
+@media (width < 768px) {
+  .header, .footer {
+    min-height: 668px;
   }
 }

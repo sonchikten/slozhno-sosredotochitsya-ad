@@ -1,17 +1,17 @@
 :root.theme-dark {
-  --bg-image: url(../images/cover-image-dark.png);
-  --bg-color: #000028;
-  --accent-color: #ff0070;
-  --card-text: #f1b2ce;
-  --title-color: #db00ff;
-  --header-text-color: #000028;
-  --header-text-bg-color: #ff0070;
-  --accent-color-border: rgba(255, 0, 112, 0.4);
-  --shadow-color: #ff0070;
-  --corner-color: #ff0070;
-  --header-color: #ff0070;
+    --bg-image: url(../images/cover-image-dark.png);
+    --bg-color: #000028;
+    --accent-color: #FF0070;
+    --card-text: #F1B2CE;
+    --title-color: #DB00FF;
+    --header-text-color: #000028;
+    --header-text-bg-color: #FF0070;
+    --accent-color-border: rgba(255, 0, 112, 0.4);
+    --shadow-color: #FF0070;
+    --corner-color: #FF0070;
+    --header-color: #FF0070;
 }
 
-.theme-dark .rec-indicator {
+.theme-dark .header__hiddencorner {
   display: flex;
 }
