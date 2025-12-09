@@ -1,5 +1,383 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  min-width: 375px;
+  overflow-x: hidden;
+  font-family: var(--main-font, monospace);
+  background-color: var(--bg-color);
+  background-attachment: fixed;
+}
+
+.top-section {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  align-items: center;
+  gap: var(--gap_menu);
+  height: 100vh;
+  padding: var(--decoration-gap) 0;
+  background-image: var(--bg-image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute;
+  top: var(--decoration-gap);
+  right: var(--decoration-gap);
+  border-top: 1px solid var(--corner-color);
+  border-right: 1px solid var(--corner-color);
+  block-size: 25px;
+  inline-size: 25px;
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  bottom: var(--decoration-gap);
+  left: var(--decoration-gap);
+  border-bottom: 1px solid var(--corner-color);
+  border-left: 1px solid var(--corner-color);
+  block-size: 25px;
+  inline-size: 25px;
+}
+
+.theme-switcher {
+  justify-self: end;
+  margin: auto var(--decoration-gap);
+}
+
+.theme-switcher__list {
+  position: relative;
+  display: grid;
+  gap: 13px;
+}
+
+.theme-switcher__btn {
+  display: inline-block;
+  width: 70px;
+  height: 26px;
+  border: none;
+  padding: 1.5px 15px;
+  color: var(--header-color);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 18px;
+  text-align: center;
+  text-transform: lowercase;
+  background: transparent;
+  cursor: pointer;
+}
+
+.theme-switcher__btn_active {
+  border: 1px solid var(--header-color);
+  pointer-events: none;
+}
+
+.theme-switcher__btn:hover {
+  border: 1px solid var(--accent-color-border);
+}
+
+.theme-switcher__btn:focus {
+  outline: none;
+}
+
+.theme-switcher__btn:focus-visible {
+  border-bottom: 1px solid var(--header-color);
+}
+
+.rec-indicator {
+  position: absolute;
+  top: var(--decoration-gap);
+  right: var(--decoration-gap);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 9px;
+  color: var(--accent-color);
+}
+
+.rec-indicator::after {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 4px 2px var(--accent-color);
+  overflow: hidden;
+  background-color: var(--accent-color);
+}
+
+.intro-text {
+  margin-right: 0 var(--decoration-gap);
+  color: var(--header-text-color);
+  font-weight: 700;
+  font-size: inherit;
+  line-height: 23.4px;
+  background-color: var(--header-text-bg-color);
+}
+
+.main-title {
+  padding: var(--decoration-gap);
+  color: var(--title-color);
+  font-weight: 700;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 83%;
+  text-shadow: 4px 4px 0px var(--shadow-color);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 0 var(--decoration-gap);
+}
+
+.focus-problem,
+.attention-enemies,
+.focus-solutions,
+.solutions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-title {
+  color: var(--header-color);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23.4px;
+}
+
+.content-link {
+  text-decoration: none;
+  text-shadow: 2px 1px 0 var(--accent-color);
+  cursor: pointer;
+}
+
+.content-link:focus {
+  outline: none;
+}
+
+.content-link:focus-visible {
+  outline: 1px solid currentColor;
+}
+
+.content-link:hover {
+  border-bottom: 1px solid currentColor;
+}
+
+.accent-title {
+  color: var(--header-text-color);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23.4px;
+  background-color: var(--header-text-bg-color);
+}
+
+.content-card,
+.solutions-list__item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.solutions-list__header {
+  font-weight: 400;
+}
+
+.card-text {
+  color: var(--card-text);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23.4px;
+}
+
+.image-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--decoration-gap);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-gap: var(--decoration-gap);
+}
+
+.gallery-grid__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bottom-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: var(--decoration-gap);
+}
+
+.footer-title {
+  color: var(--title-color);
+  font-weight: 700;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-style: normal;
+  line-height: 83%;
+  text-shadow: 2px 2px 0 var(--shadow-color);
+}
+
+@media (width >= 768px) {
+  :root {
+    --decoration-gap: 20px;
+  }
+
+  .page {
+    gap: 60px;
+  }
+
+  .content {
+    gap: 80px;
+  }
+
+  .top-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .theme-switcher {
+    grid-column: 1/3;
+    grid-row: 1;
+  }
+
+  .main-title {
+    left: -20px;
+    grid-column: 1/3;
+    grid-row: 2;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .intro-text {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .focus-problem {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+  }
+
+  .focus-problem .section-title,
+  .attention-enemies .section-title,
+  .focus-solutions .section-title {
+    grid-column: 1;
+  }
+
+  .focus-solutions .section-title {
+    grid-row: 1/3;
+  }
+
+  .focus-problem .content-card {
+    grid-column: 2;
+  }
+
+  .attention-enemies {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .attention-enemies .content-card {
+    grid-column: 1/-1;
+  }
+
+  .focus-solutions {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+  }
+
+  .solutions-title,
+  .solutions-list {
+    grid-column: 2;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, minmax(196px, 1fr));
+    grid-auto-flow: dense;
+  }
+
+  .sunset,
+  .street {
+    grid-column: span 2;
+  }
+
+  .books {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .ice-cream,
+  .tape {
+    grid-row: span 2;
+  }
+
+  .footer-title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+}
+
+@media (width >= 1024px) {
+  .theme-switcher {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: start;
+    height: 100%;
+  }
+
+  .theme-switcher__list {
+    grid-auto-flow: column;
+  }
+
+  .focus-problem {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .focus-problem .section-title {
+    grid-row: span 2;
+  }
+
+  .focus-problem .content-card {
+    grid-column: span 2;
+  }
+
+  .attention-enemies {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .attention-enemies .content-card {
+    grid-column: span 1;
+    grid-row: 2;
+  }
+
+  .focus-solutions {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .focus-solutions .solutions-title,
+  .focus-solutions .solutions-list {
+    grid-column: 2/4;
+  }
+
+  .focus-solutions .section-title {
+    grid-row: span 2;
+  }
 }
